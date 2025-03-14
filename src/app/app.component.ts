@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { POKEMONS } from './mock-pokemon-list';
-import { Pokemon } from './pokemon';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +6,5 @@ import { Pokemon } from './pokemon';
   standalone: false,
   styles: []
 })
-export class AppComponent implements OnInit {
-  pokemonList: Pokemon[] = POKEMONS;
-  pokemonSelected: Pokemon|undefined;
-
-  ngOnInit(): void {
-    console.table(this.pokemonList);
-  }
-
-  selectPokemon(pokemon: Pokemon) {
-    if(this.pokemonList.find((element) => element == pokemon)) {
-      console.log(`Vous avez demandé ${pokemon.name}`);
-      this.pokemonSelected = pokemon;
-    } else {
-      console.log(`Vous avez demandé un pokémon qui n'existe pas`);
-      this.pokemonSelected = pokemon;
-    }
-  }
+export class AppComponent{
 }
