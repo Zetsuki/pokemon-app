@@ -1,36 +1,16 @@
 
 <h1 class="center"> Liste de pokémons</h1>
 <div class="container ">
-    <div class="input-field">
-        <input
-            #input
-            (keyup.enter)="selectPokemon(input.value)"
-            type="number"
-            id="pokemon-input"
-            class="validate"
-        />
-        <label for="pokemon-input">Entrez le numéro du pokémon</label>
-    </div>
-    
-    <p *ngIf="pokemonSelected"> 
-        Le pokémon selectionné est : {{ pokemonSelected.name }}
-    </p>
-    <p *ngIf="!pokemonSelected"> 
-        Aucun pokémon trouvé
-    </p>
-
     <div class="row">
         <div *ngFor="let pokemon of pokemonList;" class="col m6 s6 l6">
-            <div class="card horizontal blue-grey lighten-4" pkmnBorderCard> 
+            <div class="card horizontal blue-grey lighten-4" (click)="selectPokemon(pokemon)" pkmnBorderCard> 
                 <div class="card-image">
                     <img [src]="pokemon.picture" [alt]="pokemon.name"/>
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
                         <h5>{{ pokemon.name }}</h5>
-                        <p>HP: {{ pokemon.hp }}</p>
-                        <p>CP: {{ pokemon.cp }}</p>
-                        <p>Types: {{ pokemon.types.join(', ') }}</p>
+                        <p>{{ pokemon.created }}</p>
                     </div>
                 </div>
             </div>
