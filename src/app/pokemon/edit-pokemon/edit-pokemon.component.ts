@@ -7,11 +7,14 @@ import { PokemonService } from '../pokemon.service';
   selector: 'app-edit-pokemon',
   standalone: false,
   template: `
-    <h2 class="center">Editer {{ pokemon?.name }} </h2>
-    <p *ngIf="pokemon" class="center">
+    <div *ngIf="pokemon" class="center">
+      <h2 class="center">Editer {{ pokemon.name }} </h2>
       <img [src]="pokemon.picture">
-    </p>
+</div>
     <app-pokemon-form *ngIf="pokemon" [pokemon] = "pokemon"></app-pokemon-form>
+    <h3 *ngIf="!pokemon" class="center">
+      <pkmn-loader></pkmn-loader>
+    </h3>
   `,
   styles: ``
 })
